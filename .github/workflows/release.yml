@@ -20,19 +20,27 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: goreleaser/goreleaser-action@v6
       - uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
 
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
-        id: semantic
-        with:
-          semantic_version: 17
-          extra_plugins: |
-            @semantic-release/changelog@5
-            @semantic-release/exec@5
-            @semantic-release/git@9
+      - name: Install dependencies
+        run: npm install -g semantic-release @semantic-release/github @semantic-release/release-notes-generator conventional-changelog-conventionalcommits conventional-changelog-eslint
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: semantic-release $DRY_RUN_OPT
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+  
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v6
+        with:
+          version: "~> v2"
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      
