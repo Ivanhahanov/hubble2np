@@ -1,6 +1,23 @@
 # hubble2np
 Utility to analyze Hubble Flow and convert it to Cilium Network Policies
-
+## Install
+You can download `hubble2np` from [Github Releases](https://github.com/Ivanhahanov/hubble2np/releases)
+### Macos
+Download for MacOS on ARM
+```bash
+wget -c https://github.com/Ivanhahanov/hubble2np/releases/download/0.1.0/hubble2np_Darwin_arm64.tar.gz -O - | tar -xz
+```
+### Linux 
+Download for Linux on AMD
+```bash
+wget -c https://github.com/Ivanhahanov/hubble2np/releases/download/0.1.0/hubble2np_Linux_x86_64.tar.gz
+ -O - | tar -xz
+```
+### Move to system `PATH`
+Move the `hubble2np` binary to a file location on your system `PATH`
+```bash
+sudo mv ./hubble2np /usr/local/bin/hubble2np
+```
 ## Usage
 `hubble2np` works with hubble flow in `json` format. To generate a policy or graph you need to pass json as input using `stdin`.
 ```bash
