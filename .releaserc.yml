@@ -9,3 +9,7 @@ fail: false
 npmPublish: false
 tarballDir: false
 tagFormat: "${version}"
+
+branches:
+  - ci
+  - main
