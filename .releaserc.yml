@@ -1,0 +1,14 @@
+---
+plugins:
+   - "@semantic-release/commit-analyzer"
+   - "@semantic-release/release-notes-generator"
+   - "@semantic-release/git"
+
+success: false
+fail: false
+npmPublish: false
+tarballDir: false
+tagFormat: "${version}"
+
+branches:
+  - main
