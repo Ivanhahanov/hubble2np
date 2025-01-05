@@ -1,5 +1,5 @@
 # hubble2np
-Utility to convert Hubble Flow to Cilium Network Policies
+Utility to analyze Hubble Flow and convert it to Cilium Network Policies
 
 ## Usage
 `hubble2np` works with hubble flow in `json` format. To generate a policy or graph you need to pass json as input using `stdin`.
